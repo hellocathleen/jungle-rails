@@ -1,0 +1,5 @@
+<p>Thank you for your order!</p>
+Your order total is $<%= @order.total %>
+<% @order_items.each do |product| %>
+  <li><%= product.name %></li><br>
+<% end %>
