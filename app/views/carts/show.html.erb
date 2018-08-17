@@ -1,9 +1,9 @@
 <section class="cart-show">
 
   <header class="page-header">
-    <h1>My Cart</h1>
+    <h1>My Cart 🛒</h1>
   </header>
-
+  <% if cart != {} %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -14,12 +14,14 @@
           <th>Price</th>
         </tr>
       </thead>
+      
       <tbody>
         <% @cart_total = 0 %>
         <% cart.each do |product_id, details| %>
           <%= render 'item', product_id: product_id, details: details %>
         <% end %>
       </tbody>
+      
       <tfoot>
         <tr>
           <th colspan="4">
@@ -49,5 +51,8 @@
       <% end %>
     </div>
   </div>
-
+  <% else %>
+  <p class="empty-cart">Your cart is empty. 😲 | <%= link_to "Go Shopping", root_path %></p>
+  <% end %>
+  
 </section>
