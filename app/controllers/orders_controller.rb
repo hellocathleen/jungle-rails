@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
       order_item[:quantity] = item.quantity
       @order_items.push(order_item)
     end
+  OrderMailer.order_email(@order_items, @order).deliver
   end
 
   def create
