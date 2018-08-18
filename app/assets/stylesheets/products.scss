@@ -91,3 +91,24 @@ main section.products-show {
   color: red;
   font-size: 25px;
 }
+
+.review {
+  font-family: Verdana, sans-serif;
+
+  .review-name,
+  .review-date {
+    color: #555;
+    font-size: 0.9em;
+  }
+}
+  
+.login-info,
+.register {
+  float: right;
+  margin-top: 15px;
+  margin-left: 7px;
+}
+
+// .login {
+//   font-size: 0.5em;
+// }
