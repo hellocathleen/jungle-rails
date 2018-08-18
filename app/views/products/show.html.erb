@@ -43,23 +43,25 @@
         <% @reviews.each do |review| %>
           <% case review.rating %>
             <% when 1 %>
-              <% rating = "⭐" %>
+              <% rating = "🐧" %>
             <% when 2 %>
-              <% rating = "⭐⭐" %>
+              <% rating = "🐧🐧" %>
             <% when 3 %>
-              <% rating = "⭐⭐⭐" %>
+              <% rating = "🐧🐧🐧" %>
             <% when 4 %>
-              <% rating = "⭐⭐⭐⭐" %>
+              <% rating = "🐧🐧🐧🐧" %>
             <% when 5 %>
-              <% rating = "⭐⭐⭐⭐⭐" %>
-            <% end %>
+              <% rating = "🐧🐧🐧🐧🐧" %>
+          <% end %>
           <p class="rating">Rating: <%= rating %></p>
           <% user = User.find_by(id: review.user_id) %>
-          <div class="review-name"><%= user.first_name %> <%= user.last_name %></div>
+          <% if user %>
+            <div class="review-name"><%= user.first_name %> <%= user.last_name %></div>
+          <% end %>
           <p class="review-date"><%= review.created_at.strftime("%B, %d, %Y") %></p>
           <p class="review-description"><%= review.description %></p>
           <% if user == current_user %>
-          <%= button_to "Delete", product_review_path(id: review.id, product_id: review.product_id), method: :delete, data: { confirm: 'Are you sure?' }%>
+            <%= button_to "Delete", product_review_path(id: review.id, product_id: review.product_id), method: :delete, data: { confirm: 'Are you sure?' }%>
           <% end %>
           <hr>
         <% end %>

@@ -6,8 +6,16 @@
     <% end %>
   </header>
   <p class="description">
-    <%= product.description %>
+  <%= product.description %>
   </p>
+
+  <% reviews = Review.where(product_id: product.id) %>
+  <% rating = reviews.average(:rating) %>
+  <% if rating %>
+    <hr>
+    <div>Average Rating: <strong><%= rating %></strong></div>
+  <% end %>
+
   <footer class="actions">
     <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
       <%= fa_icon "shopping-cart", text: 'Add' %>
