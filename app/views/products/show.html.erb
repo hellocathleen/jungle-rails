@@ -27,20 +27,32 @@
     </div>
     <h3>Product Reviews</h3>
     <hr>
-    <%= form_for [@product, @review] do |f| %>
-      <p>
-      How would you rate the product? <%= f.select(:rating, options_for_select([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]])) %><br>
-      Write your review: <br><%= f.text_area :description %>
-      </p>
-      <%= f.submit "Submit" %>
-    <% end %>
-    <hr>
-    <div class="review">
-      <% @reviews.each do |review| %>
-        <h5>User: <%= review.user_id %></h5>
-        <p><%= review.description %></p><h5>Rating: <%= review.rating %></h5>
+    <% if session[:user_id] %>
+      <%= form_for [@product, @review] do |f| %>
+        <p>
+        How would you rate the product? <%= f.select(:rating, options_for_select([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]])) %><br>
+        Write your review: <br><%= f.text_area :description %>
+        </p> 
+        <%= f.submit "Submit" %>
         <hr>
       <% end %>
+    <% end %>
+ 
+
+      <div class="review">
+      <% if @reviews %>
+        <% @reviews.each do |review| %>
+          <h5>User: <%= review.user_id %></h5>
+          <div class="review-date"><%= review.created_at.strftime("%B, %d, %Y") %></div>
+          <p class="review-description"><%= review.description %></p><h5>Rating: <%= review.rating %></h5>
+          <% user = User.find_by(id: review.user_id) %>
+          <% if user == current_user %>
+          <%= button_to "Delete", product_review_path(id: review.id, product_id: review.product_id), method: :delete, data: { confirm: 'Are you sure?' }%>
+          <% end %>
+          <hr>
+        <% end %>
+      <% end %>
+
     </div>
 
 
