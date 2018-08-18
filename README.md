@@ -29,6 +29,9 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 
 ## Screenshots
 ![Product Catalog](https://github.com/hellocathleen/jungle-rails/blob/master/docs/Screen%20Shot%202018-08-18%20at%201.40.16%20PM.png?raw=true)
+
 ![Write Review](https://github.com/hellocathleen/jungle-rails/blob/master/docs/Screen%20Shot%202018-08-18%20at%201.39.51%20PM.png?raw=true)
+
 ![View Product](https://github.com/hellocathleen/jungle-rails/blob/master/docs/Screen%20Shot%202018-08-18%20at%201.39.12%20PM.png?raw=true)
+
 ![Order Receipt](https://github.com/hellocathleen/jungle-rails/blob/master/docs/Screen%20Shot%202018-08-18%20at%201.41.07%20PM.png?raw=true)
