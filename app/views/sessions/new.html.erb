@@ -1,11 +1,12 @@
-<h1>Login<h1>
-
-<% if flash[:error] %>
-<div class="error"><%= flash[:error] %></div>
-<% end %>
-<br>
-<%= form_tag sessions_path do %>
-  Email: <%= text_field_tag :email %><br>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
-<% end %>
+<h1>Log in</h1>
+<div class="login">
+  <% if flash[:error] %>
+  <div class="error"><%= flash[:error] %></div>
+  <% end %>
+  <br>
+  <%= form_tag sessions_path do %>
+    Email: <%= text_field_tag :email %><br>
+    Password: <%= password_field_tag :password %>
+    <%= submit_tag "Submit" %>
+  <% end %>
+</div>
