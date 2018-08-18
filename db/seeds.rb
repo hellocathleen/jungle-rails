@@ -134,3 +134,40 @@ cat3.products.create!({
 
 
 puts "DONE!"
+
+## PRODUCTS
+
+pro1 = Product.find_or_create_by! id: 1
+pro2 = Product.find_or_create_by! id: 2
+pro3 = Product.find_or_create_by! id: 3
+pro4 = Product.find_or_create_by! id: 4
+
+pro1.reviews.create!({
+  user_id: 3,
+  description: "This shirt is like silk. Wear it every day.",
+  rating: 4
+})
+
+pro1.reviews.create!({
+  user_id: 2,
+  description: "Amazing!! My hubby loves it.",
+  rating: 4
+})
+
+pro2.reviews.create!({
+  user_id: 2,
+  description: "These pants fit so well!",
+  rating: 5
+})
+
+pro3.reviews.create!({
+  user_id: 2,
+  description: "Perfect hat for this hipster.",
+  rating: 5
+})
+
+pro4.reviews.create!({
+  user_id: 1,
+  description: "Socks for hipsters. Not much else to say.",
+  rating: 3
+})
